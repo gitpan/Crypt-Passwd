@@ -3,3 +3,10 @@ Revision history for Perl extension Crypt::Passwd.
 0.01  Mon Aug  3 20:41:48 1998
 	- Initial release.
 
+0.02  Sun Aug  9 09:45:03 1998
+	- Added config.h to customize crypt*() methods to use. This
+	allows users with an implementation of UFC-Crypt with no
+	crypt16() to use the module easily. This also eases the use
+	of other crypt() libraries. Thanks to Lupe Crystoph for poiting
+	this out.
+

@@ -13,19 +13,35 @@
 
   */
 
-char *crypt();			/* Prototype to standard crypt() */
-char *crypt16();		/* Prototype to extended crypt16() */
+#include "config.h"
+
+
+#ifdef STD_CRYPT
+char *STD_CRYPT();			/* Prototype to standard crypt() */
+#endif /* STD_CRYPT */
+
+#ifdef EXT_CRYPT
+char *EXT_CRYPT();		/* Prototype to extended crypt16() */
+#endif /* EXT_CRYPT */
 
 char *unix_std_crypt(password, salt)
 char *password,
 char *salt
 {
+#ifdef STD_CRYPT
   return crypt(password, salt);
+#else /* STD_CRYPT */
+  return (char *) NULL;
+#endif /* STD_CRYPT */
 }
 
 char *unix_ext_crypt (password, salt)
 char *password,
 char *salt
 {
+#ifdef EXT_CRYPT
   return crypt16(password, salt);
+#else /* EXT_CRYPT */
+  return (char *) NULL;
+#endif /* EXT_CRYPT */
 }

@@ -8,6 +8,7 @@ extern "C" {
 }
 #endif
 
+#include "config.h"
 #include "passwd.h"
 
 static int
@@ -48,7 +49,12 @@ unix_std_crypt(passwd, salt)
 	char* passwd
 	char* salt
   CODE:
-	RETVAL = crypt(passwd, salt);
+#ifdef STD_CRYPT
+	RETVAL = STD_CRYPT(passwd, salt);
+#else /* STD_CRYPT */
+	croak("No standard crypt() defined");
+	RETVAL = NULL;
+#endif /* STD_CRYPT */
   OUTPUT:
 	RETVAL
 
@@ -57,7 +63,12 @@ unix_ext_crypt(passwd, salt)
 	char* passwd
 	char* salt
   CODE:
-	RETVAL = crypt16(passwd, salt);
+#ifdef EXT_CRYPT
+	RETVAL = EXT_CRYPT(passwd, salt);
+#else /* EXT_CRYPT */
+	croak("No extended crypt() or crypt16() defined");
+	RETVAL = NULL;
+#endif /* EXT_CRYPT */
   OUTPUT:
 	RETVAL
 

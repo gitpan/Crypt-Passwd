@@ -4,6 +4,7 @@ Makefile.PL
 Passwd.pm
 Passwd.xs
 README
+config.h
 passwd.c
 passwd.h
 t/std.t
