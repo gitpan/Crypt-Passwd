@@ -48,6 +48,7 @@ char*
 unix_std_crypt(passwd, salt)
 	char* passwd
 	char* salt
+  PROTOTYPE: $$
   CODE:
 #ifdef STD_CRYPT
 	RETVAL = STD_CRYPT(passwd, salt);
@@ -62,6 +63,7 @@ char*
 unix_ext_crypt(passwd, salt)
 	char* passwd
 	char* salt
+  PROTOTYPE: $$
   CODE:
 #ifdef EXT_CRYPT
 	RETVAL = EXT_CRYPT(passwd, salt);
@@ -71,11 +73,3 @@ unix_ext_crypt(passwd, salt)
 #endif /* EXT_CRYPT */
   OUTPUT:
 	RETVAL
-
-
-
-
-
-
-
-

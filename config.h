@@ -11,4 +11,4 @@
 #define STD_CRYPT fcrypt
 
 /* crypt16() function to use. Comment to skip this function. */
-#define EXT_CRYPT crypt16
+/* #define EXT_CRYPT crypt16 */

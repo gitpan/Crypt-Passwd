@@ -7,4 +7,5 @@ WriteMakefile(
     'LIBS'	=> ['-lufc'],   # e.g., '-lm' 
     'DEFINE'	=> '',     # e.g., '-DHAVE_SOMETHING' 
     'INC'	=> '',     # e.g., '-I/usr/include/other' 
+    'PREREQ_PM' => { 'MD5' => 0 }
 );

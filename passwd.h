@@ -8,12 +8,14 @@
 
   */
 
+#ifdef STD_CRYPT
 /* This is the traditional UNIX crypt() function */
 char*
-unix_std_crypt(char* password, char* salt);
+STD_CRYPT(char* password, char* salt);
+#endif
 
+#ifdef EXT_CRYPT
 /* This is the enhanced crypt() present on Ultrix and Digital Unix */
 char*
-unix_ext_crypt(char* password, char* salt);
-
-
+EXT_CRYPT(char* password, char* salt);
+#endif

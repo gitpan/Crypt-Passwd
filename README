@@ -28,11 +28,10 @@ the UFC-Crypt library. This code is provided as is, with no warranties.
 
 CUSTOMIZATION:
 
-If your version of UFC-Crypt doesn't include the crypt16() function,
-you can edit the file 'config.h' and comment out the definition for
-EXT_CRYPT. Note that in this case, the tests won't complete and a 
-message about the missing function will be printed. Thanks to Lupe 
-Christoph for suggesting this.
+If your version of UFC-Crypt includes the crypt16() function,
+you can edit the file 'config.h' and de-comment the definition for
+EXT_CRYPT. Thanks to Lupe Christoph for pointing out that most versions
+of UFC-Crypt found on the Net are missing crypt16().
 
 Other libraries can be used instead. For this, just replace 
 the -lufc in the file Makefile.PL with the desired one. Also, edit
